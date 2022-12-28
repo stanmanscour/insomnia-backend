@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-const port = `0.0.0.0:$PORT`;
+const port = process.env.PORT || 3000;
 
 io.on('connection', (socket) => {
   socket.on('message', msg => {
